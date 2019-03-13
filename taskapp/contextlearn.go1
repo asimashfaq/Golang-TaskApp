@@ -1,0 +1,38 @@
+/*package main
+
+import (
+	"fmt"
+	loger "internal/log"
+	"internal/shared"
+	"time"
+)
+
+func main() {
+	context, cancel, c := shared.CreateContext(5 * time.Second)
+	go func() {
+		fmt.Println("Inside the gorotune")
+		context.Done()
+		fmt.Println("going to sleep")
+		time.Sleep(10 * time.Second)
+		fmt.Println("asdasd")
+		//cancel()
+		<-context.Done()
+	}()
+	fmt.Println("Ad")
+	select {
+	case <-time.After(2 * time.Second):
+		fmt.Println("am calling done")
+		cancel()
+	//	context.Done()
+	case <-context.Done():
+		fmt.Println("am done")
+		if context.Err().Error() != "context canceled" {
+			loger.Error("Context Failed to connect to db, Timeout Exceeds, Check your Internet connection or Connection Url")
+
+		}
+	case <-c:
+		fmt.Println("Connection Open success! Task Done")
+	}
+	fmt.Println("I will be called when go routine is finished")
+}
+*/
